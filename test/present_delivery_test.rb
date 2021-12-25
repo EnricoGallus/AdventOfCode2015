@@ -16,6 +16,22 @@ class PresentDeliveryTest < Minitest::Test
   end
 
   def test_input
-    assert_equal 1586300, deliver(File.read('day3_present_delivery/input.txt').strip)
+    assert_equal 2592, deliver(File.read('day3_present_delivery/input.txt').strip)
+  end
+
+  def test_robot_one_move
+    assert_equal 3, deliver_robot('^v')
+  end
+
+  def test_robot_circle
+    assert_equal 3, deliver_robot('^>v<')
+  end
+
+  def test_robot_up_and_down
+    assert_equal 11, deliver_robot('^v^v^v^v^v')
+  end
+
+  def test_robot_input
+    assert_equal 2360, deliver_robot(File.read('day3_present_delivery/input.txt').strip)
   end
 end
